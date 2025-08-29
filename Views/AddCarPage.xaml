@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FavCars.Views.AddCarPage"
+             Title="Add New Car">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <!-- Car Image -->
+            <Image x:Name="CarImage" HeightRequest="150" Aspect="AspectFill" />
+            <Button Text="Upload Picture" Clicked="OnUploadPictureClicked"/>
+
+            <!-- Car Details -->
+            <Entry x:Name="NameEntry" Placeholder="Car Name"/>
+            <Entry x:Name="YearEntry" Placeholder="Year Released" Keyboard="Numeric"/>
+            <Entry x:Name="EngineEntry" Placeholder="Engine"/>
+            <Entry x:Name="ColorEntry" Placeholder="Color"/>
+
+            <Picker x:Name="FuelPicker" Title="Fuel Type">
+                <Picker.Items>
+                    <x:String>Petrol</x:String>
+                    <x:String>Diesel</x:String>
+                    <x:String>Electric</x:String>
+                    <x:String>Hybrid</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <!-- Save Button -->
+            <Button Text="Save Car" 
+                    Clicked="OnSaveCarClicked" 
+                    BackgroundColor="Green" 
+                    TextColor="White"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
+
+
