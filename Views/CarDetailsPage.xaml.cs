@@ -4,11 +4,11 @@ namespace FavCars.Views;
 
 public partial class CarDetailsPage : ContentPage
 {
-	public string CarId { get; set; }
-    public object Name { get; private set; }
+	public string CarId { get; set; } // Bindable property for Car ID
+    public object Name { get; private set; } // Car name property
 
-    public CarDetailsPage()
-	{
+    public CarDetailsPage() // Constructor
+    {
 		InitializeComponent();
 	}
     protected override async void OnAppearing()

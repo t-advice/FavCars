@@ -16,7 +16,7 @@ public partial class App : Application
         MainPage = new AppShell();
     }
 
-    public static CarDatabase Database
+    public static CarDatabase Database 
     {
         get
         {

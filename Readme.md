@@ -7,7 +7,7 @@ The app uses **SQLite** as a local embedded database and supports running on **A
 
 ---
 
-## Features
+# Features
 
 - **Car List**: Displays all saved cars with picture, name, and year.
 - **Car Details**: Tap a car to see more info (engine, fuel type, color, year).
@@ -29,4 +29,30 @@ The app uses **SQLite** as a local embedded database and supports running on **A
 ---
 
 ## Project Structure
+FavCars/
+│
+├── App.xaml / App.xaml.cs # Global app configuration
+├── AppShell.xaml / AppShell.xaml.cs # Shell navigation setup
+│
+├── Models/
+│ └── Car.cs # Car model (Id, Name, Year, Engine, Fuel, Color, ImagePath)
+│
+├── Data/
+│ └── CarDatabase.cs # SQLite database handler
+│
+├── Views/
+│ ├── MainPage.xaml(.cs) # Car list + Add button
+│ ├── CarDetailPage.xaml(.cs) # Detailed view of a single car
+│ └── AddCarPage.xaml(.cs) # Add new car form
+│
+└── Resources/Images/ # App images/icons
 
+## Setup & Installation
+
+1. **Clone the repo**
+
+   ```sh
+   git clone https://github.com/yourusername/FavCars.git
+   cd FavCars
+
+###### Author - Tashwill Advice  #########

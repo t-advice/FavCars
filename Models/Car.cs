@@ -18,7 +18,7 @@ namespace FavCars.Models
     
 
         // Details
-        public string Engine { get; set; }
+        public string Engine { get; set; } // Engine details
         public string Color { get; set; }
         public string FuelType { get; set; }
     }

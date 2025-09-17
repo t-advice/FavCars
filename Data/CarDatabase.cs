@@ -10,16 +10,16 @@ namespace FavCarsAppShell.Data;
 
 public class CarDatabase
 {
-    readonly SQLiteAsyncConnection _database;
+    readonly SQLiteAsyncConnection _database; // SQLite connection
 
-    public CarDatabase(string dbPath)
+    public CarDatabase(string dbPath)  // Constructor
     {
         _database = new SQLiteAsyncConnection(dbPath);
         _database.CreateTableAsync<Car>().Wait();
     }
 
-    // Get all cars
-    public Task<List<Car>> GetCarsAsync()
+    // Get all cars method 
+    public Task<List<Car>> GetCarsAsync() 
     {
         return _database.Table<Car>().ToListAsync();
     }

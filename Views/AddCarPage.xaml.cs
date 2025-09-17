@@ -60,10 +60,10 @@ public partial class AddCarPage : ContentPage
         }
 
         // Create car object
-        var car = new Car
+        var car = new Car  // Create new Car object
         {
-            Name = NameEntry.Text,
-            Year = year,
+            Name = NameEntry.Text, // Car name
+            Year = year, // Parsed year
             Engine = EngineEntry.Text,
             Color = ColorEntry.Text,
             FuelType = FuelPicker.SelectedItem.ToString(),
@@ -71,7 +71,7 @@ public partial class AddCarPage : ContentPage
         };
 
         // Save to SQLite
-        await App.Database.SaveCarAsync(car);
+        await App.Database.SaveCarAsync(car);  // Save car to database
 
         await DisplayAlert("Success", "Car saved!", "OK");
 
