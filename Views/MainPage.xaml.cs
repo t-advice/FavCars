@@ -11,6 +11,7 @@ public partial class MainPage : ContentPage
     public MainPage()
     {
         InitializeComponent();
+        LoadCarsAsync();
     }
     protected override async void OnAppearing()
     {
