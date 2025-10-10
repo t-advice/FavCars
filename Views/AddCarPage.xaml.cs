@@ -16,22 +16,22 @@ public partial class AddCarPage : ContentPage
     }
 
     // Upload picture from gallery
-    private async void OnUploadPictureClicked(object sender, EventArgs e)
+    private async void OnUploadPictureClicked(object sender, EventArgs e) // media picker eventhandler.
     {
-        try
+        try // factoring in if anything goes wrong. ( try - catch error handling ) 
         {
             var result = await FilePicker.PickAsync(new PickOptions
             {
                 PickerTitle = "Select a car picture"
             });
 
-            if (result != null)
+            if (result != null) // checks if a user selected a file, if not see code below.
             {
-                _imagePath = result.FullPath;
-                CarImage.Source = _imagePath;
+                _imagePath = result.FullPath; // stored the full path of the image
+                CarImage.Source = _imagePath; // sets the image as a UI element , displaying it 
             }
         }
-        catch (Exception ex)
+        catch (Exception ex) // if anything goes wrong
         {
             await DisplayAlert("Error", $"Unable to upload image: {ex.Message}", "OK");
         }
