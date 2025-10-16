@@ -28,8 +28,9 @@
                                 <Button Text="Delete"
                                          BackgroundColor="#FF5252"
                                          TextColor="White"
-                                            CornerRadius="20"
+                                            CornerRadius="7"
                                             FontAttributes="Bold"
+                                      
                                             Clicked="OnDeleteCarClicked"
                                             HorizontalOptions="Center"
                                              WidthRequest="120" />
