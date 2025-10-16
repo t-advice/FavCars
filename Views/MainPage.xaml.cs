@@ -32,14 +32,14 @@ public partial class MainPage : ContentPage
 
 
 
-    private async void OnCarSelected(object sender, SelectionChangedEventArgs e)
-    {
-        var car = e.CurrentSelection.FirstOrDefault() as Car;
-        if (car == null) return; // No selection
+    //private async void OnCarSelected(object sender, SelectionChangedEventArgs e)
+    //{
+    //    var car = e.CurrentSelection.FirstOrDefault() as Car;
+    //    if (car == null) return; // No selection
 
-        await Shell.Current.GoToAsync($"{nameof(CarDetailsPage)}?{nameof(CarDetailsPage.Id)}?CarId={car.id}");
-        ((CollectionView)sender).SelectedItem = null; // Deselect item
-    }
+    //    await Shell.Current.GoToAsync($"{nameof(CarDetailsPage)}?{nameof(CarDetailsPage.Id)}?CarId={car.id}");
+    //    ((CollectionView)sender).SelectedItem = null; // Deselect item
+    //}
 
     private void Button_Clicked(object sender, EventArgs e)
     {
@@ -63,5 +63,16 @@ public partial class MainPage : ContentPage
 
             await DisplayAlert("Deleted", $"{car.Name} has been removed.", "OK");
         }
-    }  
+
+    }
+    private async void OnCarSelected(object sender, SelectionChangedEventArgs e)
+    {
+        var selectedCar = e.CurrentSelection.FirstOrDefault() as Car;
+        if (selectedCar == null)
+            return;
+
+        await Shell.Current.GoToAsync($"{nameof(CarDetailsPage)}?carId={selectedCar.Id}");
+        ((CollectionView)sender).SelectedItem = null; // clear selection
+    }
+
 }

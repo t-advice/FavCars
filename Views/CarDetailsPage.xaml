@@ -1,27 +1,39 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FavCars.Views.CarDetailsPage"
-             Title="Car Details">
+<ContentPage
+    x:Class="FavCars.Views.CarDetailsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Car Details">
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
+            <Image x:Name="CarImage"
+                   HeightRequest="220"
+                   Aspect="AspectFill"
+                   HorizontalOptions="Center" />
 
-            <Image x:Name="CarImage" HeightRequest="200" Aspect="AspectFill" />
+            <Label x:Name="CarNameLabel"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
 
-            <Label x:Name="CarName" FontAttributes="Bold" FontSize="24"/>
-            <Label x:Name="CarYear" FontSize="18"/>
+            <Label x:Name="CarYearLabel"
+                   FontSize="18"
+                   TextColor="Gray"
+                   HorizontalOptions="Center" />
 
-            <Label Text="Engine:" FontAttributes="Bold"/>
-            <Label x:Name="CarEngine"/>
+            <BoxView HeightRequest="1" Color="#ccc" />
 
-            <Label Text="Color:" FontAttributes="Bold"/>
-            <Label x:Name="CarColor"/>
+            <Label x:Name="CarEngineLabel" FontSize="18" />
+            <Label x:Name="CarColorLabel" FontSize="18" />
+            <Label x:Name="CarFuelTypeLabel" FontSize="18" />
 
-            <Label Text="Fuel Type:" FontAttributes="Bold"/>
-            <Label x:Name="CarFuel"/>
-
-         
+            <Button Text="Back"
+                    Clicked="OnBackClicked"
+                    BackgroundColor="#2196F3"
+                    TextColor="White"
+                    CornerRadius="25" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
+

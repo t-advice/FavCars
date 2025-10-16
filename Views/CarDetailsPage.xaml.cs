@@ -1,33 +1,42 @@
 ﻿using FavCars.Models;
+using FavCarsAppShell.Data;
 
-namespace FavCars.Views;
-
-public partial class CarDetailsPage : ContentPage
+namespace FavCars.Views
 {
-	public string CarId { get; set; } // Bindable property for Car ID
-    public object Name { get; private set; } // Car name property
-
-    public CarDetailsPage() // Constructor
+    [QueryProperty(nameof(CarId), "carId")]
+    public partial class CarDetailsPage : ContentPage
     {
-		InitializeComponent();
-	}
-    protected override async void OnAppearing()
-    {
-        base.OnAppearing();
+        private Car _car;
+        public int CarId { get; set; }
 
-        if (int.TryParse(CarId, out int id))
+        public CarDetailsPage()
         {
-            var car = (await App.Database.GetCarsAsync()).FirstOrDefault(c => c.id == id);
-            if (car != null)
+            InitializeComponent();
+            _database = new CarDatabase();
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+            _car = await App.Database.GetCarAsync(CarId);
+            if (_car != null)
             {
-                CarImage.Source = car.ImagePath;
-                CarName.Text = car.Name;
-                CarYear.Text = $"Year: {car.Year}";
-                CarEngine.Text = car.Engine;
-                CarColor.Text = car.Color;
-                CarFuel.Text = car.FuelType;
-                
+                CarNameLabel.Text = _car.Name;
+                CarYearLabel.Text = $"Year: {_car.Year}";
+                CarEngineLabel.Text = $"Engine: {_car.Engine}";
+                CarColorLabel.Text = $"Color: {_car.Color}";
+                CarFuelTypeLabel.Text = $"Fuel: {_car.FuelType}";
+
+                CarImage.Source = string.IsNullOrEmpty(_car.ImagePath)
+                    ? "defaultcar.png" // default image
+                    : _car.ImagePath;
             }
+        }
+
+        private async void OnBackClicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("..");
         }
     }
 }

@@ -27,13 +27,13 @@ public class CarDatabase
     // Get a single car
     public Task<Car> GetCarAsync(int id)
     {
-        return _database.Table<Car>().Where(c => c.id == id).FirstOrDefaultAsync();
+        return _database.Table<Car>().Where(c => c.Id == id).FirstOrDefaultAsync();
     }
 
     // Save car (insert or update)
     public Task<int> SaveCarAsync(Car car)
     {
-        if (car.id != 0)
+        if (car.Id != 0)
             return _database.UpdateAsync(car);
         else
             return _database.InsertAsync(car);

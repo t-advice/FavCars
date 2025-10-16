@@ -10,7 +10,7 @@ namespace FavCars.Models
     public class Car   // Model class for a car
     {
         [PrimaryKey, AutoIncrement] // SQLite attributes
-        public int id { get; set; }
+        public int Id { get; set; }
 
         public string Name { get; set; }
         public int Year { get; set; }
