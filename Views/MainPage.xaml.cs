@@ -63,7 +63,5 @@ public partial class MainPage : ContentPage
 
             await DisplayAlert("Deleted", $"{car.Name} has been removed.", "OK");
         }
-    }
-
-    
+    }  
 }
